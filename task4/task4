@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for smooth transitions and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text color */
+        }
+        .section-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease-in-out, max-height 0.7s ease-in-out;
+        }
+        .section-content.active {
+            opacity: 1;
+            max-height: 2000px; /* Sufficiently large to accommodate content */
+        }
+        .nav-link.active {
+            background-color: #3b82f6; /* Blue for active link */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
+
+    <!-- Header and Navigation -->
+    <header class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-4 mb-8 flex flex-col sm:flex-row justify-between items-center">
+        <h1 class="text-3xl font-extrabold text-blue-600 mb-4 sm:mb-0">BANGI GLORY</h1>
+        <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+            <button class="nav-link px-6 py-2 rounded-lg text-lg font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition duration-300 ease-in-out shadow-sm" data-section="about">About</button>
+            <button class="nav-link px-6 py-2 rounded-lg text-lg font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition duration-300 ease-in-out shadow-sm" data-section="projects">Projects</button>
+            <button class="nav-link px-6 py-2 rounded-lg text-lg font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition duration-300 ease-in-out shadow-sm" data-section="contact">Contact</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-8">
+
+        <!-- About Section -->
+        <section id="about" class="section-content">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                <img src="https://placehold.co/180x180/ADD8E6/000000?text=Your+Photo" alt="Your Photo" class="w-48 h-48 rounded-full object-cover shadow-md flex-shrink-0">
+                <div class="text-lg leading-relaxed text-gray-700 text-center md:text-left">
+                    <p class="mb-4">
+                        Hello! I'm <span class="font-semibold">B.Glory</span>, a passionate web developer with a strong focus on creating intuitive and dynamic user experiences. I specialize in front-end development, bringing designs to life with clean, efficient code.
+                    </p>
+                    <p class="mb-4">
+                        My expertise includes HTML, CSS (with frameworks like Tailwind CSS), JavaScript, and modern front-end libraries/frameworks such as React. I enjoy tackling complex problems and continuously learning new technologies to build robust and scalable applications.
+                    </p>
+                    <p>
+                        In my free time, I love exploring new coding challenges, contributing to open-source projects, and staying updated with the latest industry trends. I'm always looking for opportunities to collaborate on exciting projects and make a meaningful impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-content hidden">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border border-blue-200">
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Project Title One</h3>
+                    <p class="text-gray-700 mb-4">
+                        A responsive e-commerce website built with modern front-end technologies, featuring a product catalog, shopping cart, and secure checkout process.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">HTML</span>
+                        <span class="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">CSS</span>
+                        <span class="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">JavaScript</span>
+                        <span class="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">Tailwind CSS</span>
+                    </div>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-medium">View Project</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border border-green-200">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-3">Project Title Two</h3>
+                    <p class="text-gray-700 mb-4">
+                        An interactive data visualization dashboard presenting complex datasets using D3.js, offering dynamic filtering and drill-down capabilities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full font-medium">HTML</span>
+                        <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full font-medium">CSS</span>
+                        <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full font-medium">JavaScript</span>
+                        <span class="bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full font-medium">D3.js</span>
+                    </div>
+                    <a href="#" class="inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out text-sm font-medium">View Project</a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-purple-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border border-purple-200">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-3">Project Title Three</h3>
+                    <p class="text-gray-700 mb-4">
+                        A personal blog platform with robust content management features, user authentication, and a clean, minimalist design.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">HTML</span>
+                        <span class="bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">CSS</span>
+                        <span class="bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">JavaScript</span>
+                        <span class="bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">Node.js</span>
+                    </div>
+                    <a href="#" class="inline-block bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition duration-300 ease-in-out text-sm font-medium">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-content hidden">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Get in Touch</h2>
+            <div class="max-w-xl mx-auto">
+                <p class="text-lg text-gray-700 mb-6 text-center">
+                    I'm always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out through any of the channels below!
+                </p>
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1"></label>
+                        <input type="text" id="name" name="name" class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your message here..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-8 text-center text-gray-600">
+                    <p class="mb-2">Email: <a href="mailto:your.email@example.com" class="text-blue-600 hover:underline">your.email@example.com</a></p>
+                    <p class="mb-2">LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/yourprofile</a></p>
+                    <p>GitHub: <a href="https://github.com/yourusername" target="_blank" class="text-blue-600 hover:underline">github.com/yourusername</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-4xl text-center text-gray-500 text-sm mt-8 py-4 border-t border-gray-200">
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section-content');
+
+            // Function to show a specific section
+            const showSection = (targetSectionId) => {
+                sections.forEach(section => {
+                    if (section.id === targetSectionId) {
+                        section.classList.remove('hidden');
+                        setTimeout(() => { // Trigger transition after display block
+                            section.classList.add('active');
+                        }, 10);
+                    } else {
+                        section.classList.remove('active');
+                        // Use a timeout to hide after transition completes for a smoother effect
+                        setTimeout(() => {
+                            section.classList.add('hidden');
+                        }, 500); // Matches transition duration
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.dataset.section === targetSectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            };
+
+            // Event listeners for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const sectionId = event.target.dataset.section;
+                    showSection(sectionId);
+                });
+            });
+
+            // Show the 'about' section by default on page load
+            showSection('about');
+        });
+    </script>
+</body>
+</html>
