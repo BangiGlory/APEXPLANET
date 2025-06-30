@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Simple JavaScript Quiz</h1>
+        <div id="question-container" class="question-container">
+            <h2 id="question">Question Text</h2>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+            <button id="restart-btn" class="restart-btn btn hide">Restart Quiz</button>
+        </div>
+        <div id="score-container" class="score-container hide">
+            <h2>Quiz Finished!</h2>
+            <p id="final-score">Your Score: 0/0</p>
+        </div>
+    </div>
+
+    <script src="task3.js"></script>
+</body>
+</html>
