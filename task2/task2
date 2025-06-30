@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Web Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better readability and aesthetics, overriding some Tailwind defaults if needed */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8faff; /* Light blue-gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Ensure main content takes full height and uses grid */
+        .grid-container {
+            display: grid;
+            gap: 1.5rem; /* Space between grid items */
+            padding: 1.5rem;
+            grid-template-columns: 1fr; /* Default to single column on small screens */
+            grid-template-rows: auto;
+        }
+
+        /* Media query for larger screens using CSS Grid */
+        @media (min-width: 768px) { /* md breakpoint in Tailwind */
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens and up */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint in Tailwind */
+            .grid-container {
+                grid-template-columns: 1.5fr 1fr; /* Contact form slightly wider on large screens */
+            }
+        }
+
+        /* Specific styling for error messages */
+        .error-message {
+            color: #ef4444; /* Tailwind red-500 */
+            font-size: 0.875rem; /* text-sm */
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg py-4">
+        <nav class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-wide mb-3 sm:mb-0">My Creative Hub</a>
+            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg font-medium">
+                <li><a href="#" class="hover:text-blue-200 transition duration-300 ease-in-out">Home</a></li>
+                <li><a href="#contact-form-section" class="hover:text-blue-200 transition duration-300 ease-in-out">Contact</a></li>
+                <li><a href="#todo-list-section" class="hover:text-blue-200 transition duration-300 ease-in-out">To-Do</a></li>
+                <li><a href="#" class="hover:text-blue-200 transition duration-300 ease-in-out">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="flex-grow container mx-auto grid-container">
+
+        <section id="contact-form-section" class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Get in Touch</h2>
+            <form id="contactForm" class="space-y-5">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe"
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" required>
+                    <p id="nameError" class="error-message hidden">Name is required.</p>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com"
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" required>
+                    <p id="emailError" class="error-message hidden">A valid email is required.</p>
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 text-sm font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message here..."
+                              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" required></textarea>
+                    <p id="messageError" class="error-message hidden">Message is required.</p>
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    Send Message
+                </button>
+                <div id="formSuccess" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">Success!</strong>
+                    <span class="block sm:inline">Your message has been sent.</span>
+                </div>
+            </form>
+        </section>
+
+        <section id="todo-list-section" class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">My To-Do List</h2>
+            <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                <input type="text" id="todoInput" placeholder="Add a new task..."
+                       class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200">
+                <button id="addTodoBtn"
+                        class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    Add Task
+                </button>
+            </div>
+            <ul id="todoList" class="space-y-3">
+                <li class="flex justify-between items-center bg-gray-50 p-3 rounded-lg shadow-sm border border-gray-200">
+                    <span class="text-gray-800">Learn HTML & CSS</span>
+                    <button class="delete-todo-btn text-red-500 hover:text-red-700 font-bold py-1 px-3 rounded-md transition duration-200">Delete</button>
+                </li>
+                <li class="flex justify-between items-center bg-gray-50 p-3 rounded-lg shadow-sm border border-gray-200">
+                    <span class="text-gray-800">Practice JavaScript</span>
+                    <button class="delete-todo-btn text-red-500 hover:text-red-700 font-bold py-1 px-3 rounded-md transition duration-200">Delete</button>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            &copy; 2025 My Creative Hub. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Contact Form Validation
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            let isValid = true;
+
+            // Reset error messages
+            nameError.classList.add('hidden');
+            emailError.classList.add('hidden');
+            messageError.classList.add('hidden');
+            formSuccess.classList.add('hidden');
+
+            // Validate Name
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Name is required.';
+                nameError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Validate Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Email is required.';
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                emailError.textContent = 'Please enter a valid email address.';
+                emailError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Validate Message
+            if (messageInput.value.trim() === '') {
+                messageError.textContent = 'Message is required.';
+                messageError.classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // If all fields are valid, simulate form submission
+                console.log('Form submitted successfully!');
+                console.log('Name:', nameInput.value);
+                console.log('Email:', emailInput.value);
+                console.log('Message:', messageInput.value);
+
+                // Show success message
+                formSuccess.classList.remove('hidden');
+
+                // Optionally, clear the form fields
+                contactForm.reset();
+            }
+        });
+
+        // JavaScript for To-Do List
+        const todoInput = document.getElementById('todoInput');
+        const addTodoBtn = document.getElementById('addTodoBtn');
+        const todoList = document.getElementById('todoList');
+
+        // Function to add a new task
+        function addTask() {
+            const taskText = todoInput.value.trim();
+
+            if (taskText !== '') {
+                const listItem = document.createElement('li');
+                listItem.className = 'flex justify-between items-center bg-gray-50 p-3 rounded-lg shadow-sm border border-gray-200';
+
+                const taskSpan = document.createElement('span');
+                taskSpan.className = 'text-gray-800';
+                taskSpan.textContent = taskText;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'delete-todo-btn text-red-500 hover:text-red-700 font-bold py-1 px-3 rounded-md transition duration-200';
+                deleteButton.textContent = 'Delete';
+
+                // Add event listener to the delete button
+                deleteButton.addEventListener('click', function() {
+                    listItem.remove(); // Remove the parent li element
+                });
+
+                listItem.appendChild(taskSpan);
+                listItem.appendChild(deleteButton);
+                todoList.appendChild(listItem);
+
+                todoInput.value = ''; // Clear the input field
+            }
+        }
+
+        // Event listener for "Add Task" button
+        addTodoBtn.addEventListener('click', addTask);
+
+        // Allow adding tasks with Enter key
+        todoInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+
+        // Event delegation for initial "Delete" buttons (for existing tasks)
+        // This ensures that even if you add initial tasks in HTML, their delete buttons work
+        todoList.addEventListener('click', function(event) {
+            if (event.target.classList.contains('delete-todo-btn')) {
+                event.target.closest('li').remove();
+            }
+        });
+
+    </script>
+</body>
+</html>
