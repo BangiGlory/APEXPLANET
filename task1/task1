@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code & Mood 🎨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="main-container">
+    <h1>Code & Mood 💻</h1>
+    
+    <div class="card">
+      <h2 id="mood-title">Innovative Mode</h2>
+      <p id="mood-quote">"Coding is not just logic, it’s also art."</p>
+    </div>
+
+    <div class="tip-box">
+      <h3>💡 Web Dev Insight</h3>
+      <p id="dev-tip">HTML creates the structure — like the bones of your website.</p>
+    </div>
+
+    <button onclick="changeMood()">Change Mood 🌈</button>
+  </div>
+
+  <script src="task1.js"></script>
+</body>
+</html>
